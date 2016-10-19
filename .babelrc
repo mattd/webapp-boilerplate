@@ -1,0 +1,19 @@
+{
+    "presets" : ["es2017", "react", "stage-3"],
+    "plugins" : "transform-decorators-legacy",
+    "env": {
+        "development": {
+            "plugins": [
+                ["react-transform", {
+                    "transforms": [
+                        {
+                            "transform": "react-transform-hmr",
+                            "imports": ["react"],
+                            "locals": ["module"] // Needed for Webpack HMR
+                        }
+                    ]
+                }]
+            ]
+        }
+    }
+}

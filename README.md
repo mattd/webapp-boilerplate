@@ -1,1 +1,6 @@
-# redux-playground
+# webapp-boilerplate
+
+## install
+
+* `npm install -g yarn`
+* `yarn`

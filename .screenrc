@@ -1,0 +1,13 @@
+defscrollback 20480
+
+screen -t git 1 wrap emacsclient -c -s $PROJECT_NAME
+screen -t run 2 wrap npm run start
+screen -t emacs 3 wrap emacsclient -c -s $PROJECT_NAME
+screen 4
+
+source $HOME/.screenrc
+caption always
+
+kill
+
+select 1
