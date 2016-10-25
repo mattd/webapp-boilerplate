@@ -10,6 +10,7 @@
     "redux": "^3.6.0"
   },
   "devDependencies": {
+    "ava": "^0.16.0",
     "babel-cli": "^6.16.0",
     "babel-core": "^6.16.0",
     "babel-eslint": "^7.0.0",
@@ -41,7 +42,20 @@
     "build": "npm run clean && npm run build:webpack",
     "clean": "rm -rf ./src/static",
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_PATH=src/js ava",
+    "test:watch": "npm test -- --watch"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ],
+    "source": [
+      "src/js/**/*.{js,jsx}"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   },
   "author": "Matt Dawson",
   "license": "ISC"
