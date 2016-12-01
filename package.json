@@ -10,6 +10,7 @@
     "redux": "^3.6.0"
   },
   "devDependencies": {
+    "app-root-path": "^2.0.1",
     "ava": "^0.17.0",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
@@ -31,15 +32,17 @@
     "react-transform-hmr": "^1.0.4",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-dev-server": "^1.16.2",
-    "webpack-hot-middleware": "^2.13.2",
-    "webpack": "^1.13.3"
+    "webpack-hot-middleware": "^2.13.2"
   },
   "scripts": {
     "build:webpack": "NODE_ENV=production webpack --config webpack.prod.js",
-    "build": "npm run clean && npm run build:webpack",
+    "build": "npm run clean && npm run preflight && npm run build:webpack",
     "clean": "rm -rf ./src/static",
+    "lint": "./node_modules/.bin/eslint src/js",
+    "preflight": "npm run lint && npm run test",
     "start": "node server.js",
     "test": "NODE_PATH=src/js ava",
     "test:watch": "npm test -- --watch"

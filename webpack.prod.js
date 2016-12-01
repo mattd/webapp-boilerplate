@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+
 const base = require('./webpack.base');
 const prod = Object.assign({}, base);
 
